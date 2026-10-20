@@ -1,0 +1,5 @@
+BEGIN;
+INSERT INTO usertype (name_db) VALUES ('admin'), ('teacher'), ('director');
+INSERT INTO users (id_usertype, email_db, name_db) 
+       VALUES (1, 'oldUser@nntu.ru', 'oldUser'), (1, 'trueUser@nntu.ru', 'trueUser'),(2, 'youngUser@nntu.ru', 'youngUser'),(2, 'fastUser@nntu.ru', 'fastUser'),(3, 'slowUser@nntu.ru', 'slowUser');
+COMMIT;
