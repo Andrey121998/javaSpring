@@ -1,7 +1,8 @@
 package ru.nnov.nntu.vst.demo.models;
 
-import jakarta.annotation.Generated;
+
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "users")
@@ -9,6 +10,9 @@ public class EUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "id_usertype", referencedColumnName = "id")
+    private EUserType userType;
     @Column(name = "name_db")
     private String name; // Имя пользователя
     @Column(name = "email_db", nullable = false, unique = true)
@@ -22,6 +26,21 @@ public class EUser {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+    public EUser(Long id, EUserType userType, String name, String email) {
+        this.id = id;
+        this.userType = userType;
+        this.name = name;
+        this.email = email;
+    }
+
+    public EUserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(EUserType userType) {
+        this.userType = userType;
     }
 
     public Long getId() {
@@ -50,8 +69,9 @@ public class EUser {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "EUser{" +
                 "id=" + id +
+                ", userType=" + userType +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';

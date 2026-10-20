@@ -1,8 +1,7 @@
 package ru.nnov.nntu.vst.demo.models.contentauthor;
 
 import jakarta.persistence.*;
-import ru.nnov.nntu.vst.demo.models.wdpparser.Directory;
-import ru.nnov.nntu.vst.demo.models.wdpparser.DirectoryContent;
+import ru.nnov.nntu.vst.demo.models.directory.DirectoryContent;
 
 import java.util.Set;
 
